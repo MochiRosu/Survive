@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] int HealthBar = 100;
     [SerializeField] int WaterBar = 100;
     [SerializeField] int FoodBar = 100;
-    int num = 0;
+    int num = 1;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-
+        WaterBar -= num;
     }
 
     void HealthCheck()
