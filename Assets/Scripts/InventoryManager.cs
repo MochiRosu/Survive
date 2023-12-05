@@ -33,16 +33,20 @@ public class InventoryManager : MonoBehaviour
             Cursor.visible = true;
         }
     }
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         for (int i = 0; i < ItemSlot.Length; i++)
         {
-            if (ItemSlot[i].isFull == false)
+            if (ItemSlot[i].isFull == false && ItemSlot[i].name == name || ItemSlot[i].quantity == 0)
             {
-                ItemSlot[i].AddItem(itemName, quantity, itemSprite);
-                return;
+                int leftOverItems = ItemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                if (leftOverItems > 0)
+                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
+                
+                return leftOverItems;
             }
         }
+        return quantity;
     }
     public void DeselectAllSlots()
     {
