@@ -319,8 +319,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8402981616053212427}
-  - {fileID: 307649460002098784}
   - {fileID: 7182812847221686687}
+  - {fileID: 307649460002098784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -384,3 +384,5 @@ MonoBehaviour:
   isFull: 0
   quantityText: {fileID: 3525798169994647418}
   itemImage: {fileID: 1643977944567983758}
+  selectedShader: {fileID: 7030510608971987684}
+  thisItemSelected: 0

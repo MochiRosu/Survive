@@ -21,12 +21,16 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             menuActivated = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else if (Input.GetButtonDown("Inventory") && !menuActivated)
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             menuActivated = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
     public void AddItem(string itemName, int quantity, Sprite itemSprite)
@@ -38,6 +42,14 @@ public class InventoryManager : MonoBehaviour
                 ItemSlot[i].AddItem(itemName, quantity, itemSprite);
                 return;
             }
+        }
+    }
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < ItemSlot.Length; i++)
+        {
+            ItemSlot[i].selectedShader.SetActive(false);
+            ItemSlot[i].thisItemSelected = false;
         }
     }
 }
