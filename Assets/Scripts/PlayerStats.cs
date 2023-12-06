@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
         timer += Time.deltaTime;
 
         DeductNumber();
-        Debug.Log(HealthBar);
+        //Debug.Log(HealthBar);
     }
 
     void DeductNumber()
@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour
         if (timer >= TimerInterval)
         {
             timer = 0;
-            Debug.Log(FoodBar + " and " + WaterBar);
+            //Debug.Log(FoodBar + " and " + WaterBar);
 
             FoodAndWaterDeduction();
         }
@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1) && gameObject.tag == "FoodItem")
         {
             // Incorporate Food stats from their own scripts
-            //FoodBar = FoodBar += FoodItemStats;
+            //FoodBar += FoodItemStats;
         }
     }
 }
