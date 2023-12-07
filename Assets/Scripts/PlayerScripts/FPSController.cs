@@ -21,8 +21,6 @@ public class FPSController : MonoBehaviour
 
     public bool canMove = true;
 
-   
-
 
     CharacterController characterController;
     void Start()
@@ -31,7 +29,7 @@ public class FPSController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
 
     void Update()
     {
@@ -78,5 +76,16 @@ public class FPSController : MonoBehaviour
         }
 
         #endregion
+
+
+        RaycastHit hit;
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit) && hit.collider.CompareTag("Tree"))
+            {
+                Debug.Log("HIT");
+            }
+        }
     }
 }
